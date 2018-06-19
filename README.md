@@ -11,9 +11,12 @@ When we create a complex object from a Entity, e.g. Student that has a reference
 With this library, you can Map property to property. It means that we can create a CourseModel from Course or StudentModel from Student, using in the model a `EntityExpressionAttribute` as you see in this demo solutions and all the lambda expression will be generated for you.
 
 # Link
-Additional, with AutoMapper you can also generate Expression Tree as well: http://ahmadreza.com/2014/09/automapper-and-mapping-expressions/
+Additional, with AutoMapper you can also generate Expression Tree as well:
+* http://automapper.readthedocs.io/en/latest/Queryable-Extensions.html
+* http://automapper.readthedocs.io/en/latest/Understanding-your-mapping.html
+* https://github.com/AutoMapper/AutoMapper.EF6
 
 For example:
 ```csharp
-Expression<Func<Destination, Source>> mapper = Mapper.Engine.CreateMapExpression<Destination, Source>();
+var expression = context.Entities.ProjectTo<Dto>().Expression;
 ```
